@@ -1,0 +1,37 @@
+# Inisialisasi list kosong untuk menampung data
+data_mahasiswa = []
+
+# Perulangan untuk memasukkan data
+while True:
+    # Memasukkan nama mahasiswa
+    nama = input("Masukkan nama mahasiswa: ")
+    
+    # Memasukkan nilai tugas, UTS, dan UAS
+    nilai_tugas = float(input("Masukkan nilai tugas: "))
+    nilai_uts = float(input("Masukkan nilai UTS: "))
+    nilai_uas = float(input("Masukkan nilai UAS: "))
+    
+    # Menghitung nilai akhir
+    nilai_akhir = (nilai_tugas * 0.30) + (nilai_uts * 0.35) + (nilai_uas * 0.35)
+    
+    # Menambahkan data mahasiswa ke dalam list
+    data_mahasiswa.append({
+        "Nama": nama,
+        "Nilai Tugas": nilai_tugas,
+        "Nilai UTS": nilai_uts,
+        "Nilai UAS": nilai_uas,
+        "Nilai Akhir": nilai_akhir
+    })
+    
+    # Menanyakan apakah ingin menambah data lagi
+    tambah_data = input("Apakah ingin menambah data lagi? (y/t): ").lower()
+    if tambah_data == 't':
+        break
+
+# Menampilkan daftar data mahasiswa
+print("\nDaftar Data Mahasiswa:")
+print("=" * 40)
+print(f"{'Nama':<15}{'Tugas':<8}{'UTS':<8}{'UAS':<8}{'Akhir':<8}")
+print("=" * 40)
+for mahasiswa in data_mahasiswa:
+    print(f"{mahasiswa['Nama']:<15}{mahasiswa['Nilai Tugas']:<8}{mahasiswa['Nilai UTS']:<8}{mahasiswa['Nilai UAS']:<8}{mahasiswa['Nilai Akhir']:<8.2f}")
